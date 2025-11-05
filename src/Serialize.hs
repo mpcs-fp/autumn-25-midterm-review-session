@@ -10,9 +10,8 @@ serialize (JInt n) = show n
 serialize (JFloat d) = show d
 serialize (JString s) = show s
 serialize (JArray arr) = "[" ++ intercalate "," (map serialize arr) ++ "]"
-serialize (JObject []) = ""
-serialize (JObject ((s, json) : rest)) =
-    "{" ++ show s ++ ":" ++ serialize json ++ "}" ++ serialize (JObject rest)
+serialize (JObject pairs) =
+  "{" ++ intercalate "," (map (\(s, json) -> show s ++ ":" ++ serialize json) pairs) ++ "}"
 
 -- Test cases:
 -- λ> putStrLn (serialize $ JInt 12)
@@ -38,3 +37,6 @@ serialize (JObject ((s, json) : rest)) =
 -- λ> example3 = JObject [ ("", JArray []) ]
 -- λ> putStrLn . serialize $ example3
 -- {"":[]}
+-- λ> example4 = JObject [ ("name", JString "Alice"), ("age", JInt 25), ("active", JBoolean True) ]
+-- λ> putStrLn . serialize $ example4
+-- {"name":"Alice","age":25,"active":true}
