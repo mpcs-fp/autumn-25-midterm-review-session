@@ -1,0 +1,57 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           midterm-review-session
+version:        0.1.0.0
+description:    midterm-review-session
+build-type:     Simple
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      JSON
+      Lists
+      Maps
+      Serialize
+  other-modules:
+      Paths_midterm_review_session
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wno-unused-top-binds -Wno-unused-local-binds -Wno-unused-pattern-binds -Wno-unused-matches -Wno-missing-signatures -Wno-type-defaults -Wno-compat-unqualified-imports -Wno-name-shadowing -fdefer-typed-holes
+  build-depends:
+      base >=4.7 && <5
+    , containers
+  default-language: GHC2024
+
+executable midterm-review-session-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wno-unused-top-binds -Wno-unused-local-binds -Wno-unused-pattern-binds -Wno-unused-matches -Wno-missing-signatures -Wno-type-defaults -Wno-compat-unqualified-imports -Wno-name-shadowing -fdefer-typed-holes -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , midterm-review-session
+  default-language: GHC2024
+
+test-suite midterm-review-session-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      AssignmentSpec
+      Paths_midterm_review_session
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wno-unused-top-binds -Wno-unused-local-binds -Wno-unused-pattern-binds -Wno-unused-matches -Wno-missing-signatures -Wno-type-defaults -Wno-compat-unqualified-imports -Wno-name-shadowing -fdefer-typed-holes -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , containers
+    , hspec
+    , hspec-discover
+    , midterm-review-session
+  default-language: GHC2024

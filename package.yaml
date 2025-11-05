@@ -1,10 +1,10 @@
-name:                assignment1
+name:                midterm-review-session
 version:             0.1.0.0
 
 extra-source-files:
 - README.md
 
-description:         assignment1
+description:         midterm-review-session
 
 ghc-options:
 - -Wall
@@ -24,12 +24,13 @@ language: GHC2024
 
 dependencies:
 - base >= 4.7 && < 5
+- containers
 
 library:
   source-dirs: src
 
 executables:
-  assignment1-exe:
+  midterm-review-session-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -37,13 +38,13 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - assignment1
+    - midterm-review-session
     when:
     - condition: false
-      other-modules: Paths_assignment1
+      other-modules: Paths_midterm_review_session
 
 tests:
-  assignment1-test:
+  midterm-review-session-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -51,7 +52,7 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - assignment1
+    - midterm-review-session
     - hspec
     - hspec-discover
     - QuickCheck
