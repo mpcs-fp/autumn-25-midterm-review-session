@@ -26,7 +26,7 @@ resolveSettings
   -> M.Map String String
   -> M.Map String String
   -> M.Map String String
-resolveSettings base env cli = cli `M.union` env `M.union` base
+resolveSettings base env cli = M.union cli (M.union env base)
 
 -- Example:
 -- base = M.fromList [("timeout","30"),("host","prod")]
